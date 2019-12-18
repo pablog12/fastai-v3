@@ -13,3 +13,12 @@ docker build -t fastai-v3 . && docker run --rm -it -p 5000:5000 fastai-v3
 The guide for production deployment to Render is at https://course.fast.ai/deployment_render.html.
 
 Please use [Render's fast.ai forum thread](https://forums.fast.ai/t/deployment-platform-render/33953) for questions and support.
+
+# RUN set -e; \
+#   apk update \
+#   && apk add --virtual .build-deps gcc python3-dev musl-dev libffi-dev \
+#   && apk add gcc \
+#   && apk add python3-dev \
+#   && apk add musl-dev \
+#   && apk add libffi-dev \
+#   && rm -rf .build-deps

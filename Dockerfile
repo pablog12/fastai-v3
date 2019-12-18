@@ -1,23 +1,17 @@
-FROM tiangolo/uvicorn-gunicorn:python3.7-alpine3.8
+FROM python:3.7-slim-stretch
 
-RUN set -e; \
-  apk update \
-  && apk add --virtual .build-deps gcc python3-dev musl-dev libffi-dev \
-  && apk add gcc \
-  && apk add python3-dev \
-  && apk add musl-dev \
-  && apk add libffi-dev \
-  && rm -rf .build-deps
+RUN apt update
+RUN apt install -y python3-dev gcc
 
 COPY requirements.txt .
 
-RUN pip3 install --upgrade cython
-RUN pip3 install --upgrade -r requirements.txt
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt --upgrade
 
 COPY app app/
 
-RUN python3 app/server.py
+RUN python app/server.py
 
 EXPOSE 5000
 
-CMD ["python3", "app/server.py", "serve"]
+CMD ["python", "app/server.py", "serve"]
