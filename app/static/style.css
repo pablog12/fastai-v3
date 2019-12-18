@@ -1,3 +1,7 @@
+body, input, textarea, button {
+    font-family: 'Open Sans', sans-serif; 
+}
+
 body {
     background-color: #fff;
 }
@@ -17,7 +21,7 @@ body {
     font-size: 30px;
     margin-top: 1em;
     margin-bottom: 1em;
-    color: #262626;
+    color: #9acb00;
 }
 
 .content {
@@ -44,21 +48,26 @@ button.choose-file-button {
     height: 40px;
     border-radius: 2px;
     background-color: #ffffff;
-    border: solid 1px #7052CB;
+    border: solid 1px #9acb00;
     font-size: 13px;
-    color: #7052CB;
+    color: #9acb00;
 }
 
 button.analyze-button {
     width: 200px;
     height: 40px;
-    border: solid 1px #7052CB;
+    border: solid 1px #9acb00;
     border-radius: 2px;
-    background-color: #7052CB;
+    background-color: #9acb00;
     font-size: 13px;
     color: #ffffff;
 }
 
 button:focus {
     outline: 0;
+}
+
+.logo-image {
+    width: 135px;
+    vertical-align: middle;  
 }

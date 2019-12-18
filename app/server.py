@@ -1,6 +1,7 @@
 import aiohttp
 import asyncio
 import uvicorn
+import sys
 from fastai import *
 from fastai.vision import *
 from io import BytesIO
@@ -8,6 +9,7 @@ from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
+from pathlib import Path
 
 export_file_url = 'https://www.googleapis.com/drive/v3/files/1oIsi4nGOVc6h4MaG-B--5vK278lC_ssa?alt=media&key=AIzaSyDqV82qpaz6woqoaklIWv2non1cH30b2Kg'
 export_file_name = 'stage-2-resnet50.pkl'
@@ -62,8 +64,15 @@ async def analyze(request):
     img = open_image(BytesIO(img_bytes))
     prediction = learn.predict(img)[0]
     return JSONResponse({'result': str(prediction)})
-
+    # _,_,losses = learn.predict(img)
+    # return JSONResponse({
+    #     "result": sorted(
+    #         zip(cat_learner.data.classes, map(float, losses)),
+    #         key=lambda p: p[1],
+    #         reverse=True
+    #     )
+    # })
 
 if __name__ == '__main__':
     if 'serve' in sys.argv:
-        uvicorn.run(app=app, host='0.0.0.0', port=5000, log_level="info")
+        uvicorn.run(app=app, host='0.0.0.0', port=5000, log_level="debug")
