@@ -9,8 +9,8 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://www.googleapis.com/drive/v3/files/1oKho98IFWpblTiiBjTSVXlCpUvhfKDyu?alt=media&key=AIzaSyDqV82qpaz6woqoaklIWv2non1cH30b2Kg'
-export_file_name = 'stage-2-resnet50.pth'
+export_file_url = 'https://www.googleapis.com/drive/v3/files/1oIsi4nGOVc6h4MaG-B--5vK278lC_ssa?alt=media&key=AIzaSyDqV82qpaz6woqoaklIWv2non1cH30b2Kg'
+export_file_name = 'stage-2-resnet50.pkl'
 
 classes = ['edaphosaurus','ankylosaurus','pachycephalosaurus', 'allosaurus']
 path = Path(__file__).parent
