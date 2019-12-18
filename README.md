@@ -14,11 +14,18 @@ The guide for production deployment to Render is at https://course.fast.ai/deplo
 
 Please use [Render's fast.ai forum thread](https://forums.fast.ai/t/deployment-platform-render/33953) for questions and support.
 
-# RUN set -e; \
-#   apk update \
-#   && apk add --virtual .build-deps gcc python3-dev musl-dev libffi-dev \
-#   && apk add gcc \
-#   && apk add python3-dev \
-#   && apk add musl-dev \
-#   && apk add libffi-dev \
-#   && rm -rf .build-deps
+# How to run local
+
+Install Anaconda, create a venv and activate
+```
+conda create -n dinodex
+conda activate dinodex
+```
+Install all the packages you can from requirement.txt
+```
+conda install < torch torchvision and everything you can from requirements.txt >
+```
+Install whats missing with pip
+```
+Pip install < all the packages that cant be installed with conda >
+```
