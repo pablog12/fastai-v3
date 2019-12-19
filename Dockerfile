@@ -1,10 +1,12 @@
-FROM python:3.7-slim-stretch
 
-RUN apt-get update && apt-get install -y git python3-dev gcc \
+FROM frolvlad/alpine-miniconda3
+
+RUN apk update && apk add git python3-dev gcc \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt .
+COPY requirements.txt requirements-conda.txt ./
 
+RUN conda install --file requirements-conda.txt -c pytorch
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt --upgrade
 

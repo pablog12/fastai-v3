@@ -29,3 +29,5 @@ Install whats missing with pip
 ```
 Pip install < all the packages that cant be installed with conda >
 ```
+
+FROM python:3.7-slim-stretch
